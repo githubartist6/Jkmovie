@@ -1,4 +1,5 @@
 import { Form } from "react-router-dom";
+import "../components/css/contact.css"
 
 export const contactData = async ({ request }) => {
   try {
@@ -45,7 +46,7 @@ export const Contact = () => {
                       id="email"
                       required
                       autoComplete="off"
-                      placeholder="abc@thapa.com"
+                      placeholder="abc@jkcoder.com"
                     />
                   </div>
                 </div>

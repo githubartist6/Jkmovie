@@ -1,7 +1,10 @@
+import "../css/loading.css";
+
 export const Loading = () => {
-  return (
-    <div className="container loader-section">
-      <div className="loader"></div>
-    </div>
-  );
+    return (
+        <div className="loading-container">
+            <div className="spinner"></div>
+            <h2>Loading...</h2>
+        </div>
+    );
 };

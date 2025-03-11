@@ -1,11 +1,11 @@
 import { useNavigate, useRouteError } from "react-router-dom";
+import "../components/css/errorPage.css"
 
 export const ErrorPage = () => {
   const error = useRouteError();
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    // navigate("/");
     navigate(-1);
   };
 

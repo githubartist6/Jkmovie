@@ -1,35 +1,30 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "../css/header.css";
 
 export const Header = () => {
-  const getNavLinkStyle = ({ isActive }) => {
-    return {
-      color: isActive ? "green" : "black",
-    };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <>
       <header className="section-navbar">
-        <section className="top_txt">
-          <div className="head container">
-            <div className="head_txt">
-              <p>Get Thapa Membership, 30-day return or refund guarantee.</p>
-            </div>
-            <div className="sing_in_up">
-              <NavLink to="# ">SIGN IN</NavLink>
-              <NavLink to="# ">SIGN UP</NavLink>
-            </div>
-          </div>
-        </section>
-
-        <div className="container">
+        <div className="nav-container">
           <div className="navbar-brand">
-            <NavLink to="index">
-              <p>ThapaFlix</p>
+            <NavLink to="/">
+              <p>Jkcoder01</p>
             </NavLink>
           </div>
 
-          <nav className="navbar">
+          <div className="mobile-menu-btn" onClick={toggleMenu}>
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </div>
+
+          <nav className={isOpen ? "navbar show" : "navbar"}>
             <ul>
               <li className="nav-item">
                 <NavLink
@@ -37,6 +32,7 @@ export const Header = () => {
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
+                  onClick={() => setIsOpen(false)}
                 >
                   Home
                 </NavLink>
@@ -44,32 +40,34 @@ export const Header = () => {
               <li className="nav-item">
                 <NavLink
                   to="/about"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive ? "blue" : "black",
-                    };
-                  }}
-                >
-                  about
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="movie"
-                  className="nav-link"
-                  style={getNavLinkStyle}
-                >
-                  movies
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="contact"
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
+                  onClick={() => setIsOpen(false)}
                 >
-                  contact
+                  About
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/movie"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  Movies
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/contact"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact
                 </NavLink>
               </li>
             </ul>
