@@ -17,7 +17,7 @@ const App = () => {
       errorElement: <ErrorPage />,
       children: [
         {
-          path: "/",
+          path: "/Jkmovie",
           element: <Home />,
         },
         {

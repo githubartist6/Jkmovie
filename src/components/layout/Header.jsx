@@ -15,7 +15,7 @@ export const Header = () => {
       <header className="section-navbar">
         <div className="nav-container">
           <div className="navbar-brand">
-            <NavLink to="/">
+            <NavLink to="/Jkmovie">
               <p>Jkcoder01</p>
             </NavLink>
           </div>
@@ -28,7 +28,7 @@ export const Header = () => {
             <ul>
               <li className="nav-item">
                 <NavLink
-                  to="/"
+                  to="/Jkmovie"
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
