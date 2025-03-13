@@ -3,10 +3,6 @@ html {
     font-family: "urbanist";
 }
 
-body {
-    background: #17202a;
-}
-
 p,
 a,
 li,
@@ -43,6 +39,7 @@ button:hover {
 
 
 .main-section {
+    background: #17202a;
     width: 100%;
     height: auto;
     display: flex;
