@@ -8,6 +8,7 @@ import { ErrorPage } from "./pages/ErrorPage";
 import { getMoviesData } from "./api/GetAPIData";
 import { MovieDetails } from "./components/UI/MovieDetails";
 import { getMovieDetails } from "./api/GetMovieDetails";
+import { AxiosApp } from "./components/Axios/AiosApp";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const App = () => {
           path: "/contact",
           element: <Contact />,
           action: contactData,
+        },
+        {
+          path: "/axios",
+          element: <AxiosApp />,
         },
       ],
     },

@@ -70,6 +70,17 @@ export const Header = () => {
                   Contact
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/axios"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  Axios
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </div>
