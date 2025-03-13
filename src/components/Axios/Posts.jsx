@@ -1,6 +1,7 @@
 import "./axios.css"
 import { useEffect, useState } from "react";
-import { getPost } from "./PostApi";
+import { deletePost, getPost } from "./PostApi";
+import { Form } from "./Form";
 
 export const Posts = () => {
 
@@ -15,21 +16,46 @@ export const Posts = () => {
         getPostData();
     }, []);
 
-    return <section className="axios-section-post">
-        <ol>
-            {
-                data.map((curElem) => {
-                    const { id, body, title } = curElem
-                    return (
-                        <li key={id}>
-                            <p>Title: {title}</p>
-                            <p>Body: {body}</p>
-                            <button>Edit</button>
-                            <button className="btn-delete">Delete</button>
-                        </li>
-                    )
-                })
+    const handleDeletePost = async (id) => {
+        try {
+            const res = await deletePost(id);
+            if (res.status === 200) {
+                const newUpdatedPosts = data.filter((curPost) => {
+                    return curPost.id !== id;
+                });
+                setData(newUpdatedPosts);
             }
-        </ol>
-    </section>
+            else {
+                console.log("Failed to delete the post :", res.status);
+
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    return (
+        <>
+            <section className="section-form">
+                <Form data={data} setData={setData} />
+            </section>
+            <section className="axios-section-post">
+                <ol>
+                    {
+                        data.map((curElem) => {
+                            const { id, body, title } = curElem
+                            return (
+                                <li key={id}>
+                                    <p>Title: {title}</p>
+                                    <p>Body: {body}</p>
+                                    <button onClick={() => handleAddPost(id)}>Edit</button>
+                                    <button className="btn-delete" onClick={() => handleDeletePost(id)}>Delete</button>
+                                </li>
+                            )
+                        })
+                    }
+                </ol>
+            </section>
+        </>
+    )
 }
